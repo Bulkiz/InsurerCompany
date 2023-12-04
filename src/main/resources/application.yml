@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    password: 5403
+    url: jdbc:postgresql://localhost/insurer_company
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
