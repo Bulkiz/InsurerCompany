@@ -1,5 +1,6 @@
 package com.example.insurercompany.controllers.Advice;
 
+import com.example.insurercompany.exceptions.InvalidLoginInfo;
 import com.example.insurercompany.exceptions.ObjectHasPolicies;
 import com.example.insurercompany.exceptions.ObjectNameAlreadyExistsException;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,12 @@ public class AppExceptionHandler {
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     public String handlePolicy(ObjectHasPolicies objectHasPolicies) {
         return objectHasPolicies.getMessage();
+    }
+    
+    @ExceptionHandler(InvalidLoginInfo.class)
+    @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
+    public String handleUser(InvalidLoginInfo invalidLoginInfo) {
+        return invalidLoginInfo.getMessage();
     }
 
 }
