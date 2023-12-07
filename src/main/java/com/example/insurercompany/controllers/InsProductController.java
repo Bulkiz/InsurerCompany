@@ -61,4 +61,9 @@ public class InsProductController {
     public ResponseEntity<List<InsProductDto>> getAllByInsCompanyId(@RequestParam Integer insCompanyId) {
         return new ResponseEntity<>(insProductMapper.allToDtos(insProductService.getAllByInsCompanyId(insCompanyId)), HttpStatus.OK);
     }
+
+    @GetMapping("/{insProductId}")
+    public ResponseEntity<InsProductDto> getByInsProductId(@PathVariable Integer insProductId) {
+        return new ResponseEntity<>(insProductMapper.toDto(insProductService.getByInsProductId(insProductId)), HttpStatus.OK);
+    }
 }

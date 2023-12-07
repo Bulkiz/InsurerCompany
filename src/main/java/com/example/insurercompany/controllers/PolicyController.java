@@ -73,4 +73,19 @@ public class PolicyController {
     public ResponseEntity<List<PaymentsDto>> getPaymentsByPolicyId(@RequestParam Integer policyId) {
         return new ResponseEntity<>(paymentsMapper.allToDtos(policyService.getPaymentsByPolicyId(policyId)), HttpStatus.OK);
     }
+
+    @GetMapping("/{policyId}")
+    public ResponseEntity<PolicyDto> getByPolicyId(@PathVariable Integer policyId) {
+        return new ResponseEntity<>(policyMapper.toDto(policyService.getByPolicyId(policyId)), HttpStatus.OK);
+    }
+
+    @GetMapping("/maturity/{maturityId}")
+    public ResponseEntity<MaturityDto> getByMaturityId(@PathVariable Integer maturityId) {
+        return new ResponseEntity<>(maturityMapper.toDto(policyService.getByMaturityId(maturityId)), HttpStatus.OK);
+    }
+
+    @GetMapping("/payment/{paymentId}")
+    public ResponseEntity<PaymentsDto> getByPaymentId(@PathVariable Integer paymentId) {
+        return new ResponseEntity<>(paymentsMapper.toDto(policyService.getByPaymentId(paymentId)), HttpStatus.OK);
+    }
 }

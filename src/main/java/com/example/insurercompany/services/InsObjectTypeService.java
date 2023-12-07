@@ -12,4 +12,6 @@ public interface InsObjectTypeService {
     void deleteInsObjectType(Integer insObjectTypeId);
 
     InsObjectType updateInsObjectType(InsObjectType insObjectType);
+
+    InsObjectType getByInsObjectTypeId(Integer insObjectTypeId);
 }

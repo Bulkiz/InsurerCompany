@@ -19,4 +19,10 @@ public interface PolicyService {
     void payMaturity(Integer maturityId);
 
     List<Payments> getPaymentsByPolicyId(Integer policyId);
+
+    Policy getByPolicyId(Integer policyId);
+
+    Maturity getByMaturityId(Integer maturityId);
+
+    Payments getByPaymentId(Integer paymentId);
 }

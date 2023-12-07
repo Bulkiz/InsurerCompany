@@ -31,4 +31,9 @@ public class ClientServiceImpl implements ClientService {
         client.setModifDate(LocalDateTime.now());
         return clientRepository.save(client);
     }
+
+    @Override
+    public Client getByClientId(Integer clientId) {
+        return clientRepository.findById(clientId).get();
+    }
 }

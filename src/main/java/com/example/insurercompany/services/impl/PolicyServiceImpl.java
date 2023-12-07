@@ -76,6 +76,21 @@ public class PolicyServiceImpl implements PolicyService {
         return paymentsRepository.findAllByPolicy(policyRepository.findById(policyId).get());
     }
 
+    @Override
+    public Policy getByPolicyId(Integer policyId) {
+        return policyRepository.findById(policyId).get();
+    }
+
+    @Override
+    public Maturity getByMaturityId(Integer maturityId) {
+        return maturityRepository.findById(maturityId).get();
+    }
+
+    @Override
+    public Payments getByPaymentId(Integer paymentId) {
+        return paymentsRepository.findById(paymentId).get();
+    }
+
     private void createMaturities(Integer maturityCount, Policy savedPolicy) {
         Duration policyDuration = Duration.between(savedPolicy.getPolicyBeginDate(), savedPolicy.getPolicyEndDate());
         Duration maturityDuration = policyDuration.dividedBy(maturityCount);

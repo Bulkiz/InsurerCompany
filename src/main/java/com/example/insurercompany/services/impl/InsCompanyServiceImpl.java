@@ -72,4 +72,9 @@ public class InsCompanyServiceImpl implements InsCompanyService {
         insCompany.setModifDate(LocalDateTime.now());
         return insCompanyRepository.save(insCompany);
     }
+
+    @Override
+    public InsCompany getByInsCompanyId(Integer insCompanyId) {
+        return insCompanyRepository.findById(insCompanyId).get();
+    }
 }

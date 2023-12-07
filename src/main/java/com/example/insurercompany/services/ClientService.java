@@ -8,4 +8,6 @@ public interface ClientService {
     List<Client> findAllBySearchParams(String clientEgnBulstat, String clientType, String clientFullname, String email, String telephone);
 
     Client saveClient(Client client);
+
+    Client getByClientId(Integer clientId);
 }

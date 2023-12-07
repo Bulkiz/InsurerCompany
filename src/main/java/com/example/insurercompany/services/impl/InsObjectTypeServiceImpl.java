@@ -45,6 +45,11 @@ public class InsObjectTypeServiceImpl implements InsObjectTypeService {
     }
 
     @Override
+    public InsObjectType getByInsObjectTypeId(Integer insObjectTypeId) {
+        return insObjectTypeRepository.findById(insObjectTypeId).get();
+    }
+
+    @Override
     public void deleteInsObjectType(Integer insObjectTypeId) {
         InsObjectType insObjectType = insObjectTypeRepository.findById(insObjectTypeId).get();
         if (policyRepository.existsByInsObjectType(insObjectType)) {

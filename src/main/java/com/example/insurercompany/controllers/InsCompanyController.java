@@ -53,4 +53,9 @@ public class InsCompanyController {
         insCompanyService.deleteInsCompany(insCompanyId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/{insCompanyId}")
+    public ResponseEntity<InsCompanyDto> getByInsCompanyId(@PathVariable Integer insCompanyId) {
+        return new ResponseEntity<>(insCompanyMapper.toDto(insCompanyService.getByInsCompanyId(insCompanyId)), HttpStatus.OK);
+    }
 }

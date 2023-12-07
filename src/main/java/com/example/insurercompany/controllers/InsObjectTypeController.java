@@ -47,4 +47,9 @@ public class InsObjectTypeController {
         insObjectTypeService.deleteInsObjectType(insObjectTypeId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/{insObjectTypeId}")
+    public ResponseEntity<InsObjectTypeDto> getByInsObjectTypeId(@PathVariable Integer insObjectTypeId) {
+        return new ResponseEntity<>(insObjectTypeMapper.toDto(insObjectTypeService.getByInsObjectTypeId(insObjectTypeId)), HttpStatus.OK);
+    }
 }

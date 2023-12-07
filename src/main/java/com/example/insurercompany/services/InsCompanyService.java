@@ -14,4 +14,6 @@ public interface InsCompanyService {
     void deleteInsCompany(Integer insCompanyId);
 
     InsCompany updateInsCompany(InsCompany insCompany);
+
+    InsCompany getByInsCompanyId(Integer insCompanyId);
 }

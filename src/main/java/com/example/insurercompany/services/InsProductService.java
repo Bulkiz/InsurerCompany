@@ -16,4 +16,6 @@ public interface InsProductService {
     List<InsProduct> getAllByInsCompanyId(Integer insCompanyId);
 
     InsProduct updateInsProduct(InsProduct insProduct, String insCompanyName);
+
+    InsProduct getByInsProductId(Integer insProductId);
 }

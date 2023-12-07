@@ -59,6 +59,11 @@ public class InsProductServiceImpl implements InsProductService {
     }
 
     @Override
+    public InsProduct getByInsProductId(Integer insProductId) {
+        return insProductRepository.findById(insProductId).get();
+    }
+
+    @Override
     public void deleteInsProduct(Integer insProdCode) {
         InsProduct insProduct = insProductRepository.findById(insProdCode).get();
         if (policyRepository.existsByInsProduct(insProduct)) {

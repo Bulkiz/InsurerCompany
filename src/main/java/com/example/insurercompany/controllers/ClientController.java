@@ -1,6 +1,7 @@
 package com.example.insurercompany.controllers;
 
 import com.example.insurercompany.dtos.ClientDto;
+import com.example.insurercompany.dtos.InsCompanyDto;
 import com.example.insurercompany.mappers.ClientMapper;
 import com.example.insurercompany.services.ClientService;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -41,5 +42,10 @@ public class ClientController {
     @PutMapping
     public ResponseEntity<ClientDto> updateClient(@RequestBody ClientDto clientDto) {
         return new ResponseEntity<>(clientMapper.toDto(clientService.saveClient(clientMapper.toEntity(clientDto))), HttpStatus.OK);
+    }
+
+    @GetMapping("/{clientId}")
+    public ResponseEntity<ClientDto> getByClientId(@PathVariable Integer clientId) {
+        return new ResponseEntity<>(clientMapper.toDto(clientService.getByClientId(clientId)), HttpStatus.OK);
     }
 }
