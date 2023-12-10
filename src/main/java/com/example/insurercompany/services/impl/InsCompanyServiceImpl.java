@@ -53,8 +53,8 @@ public class InsCompanyServiceImpl implements InsCompanyService {
                 throw new ObjectHasPolicies("There are policies for this object");
             }
         });
-        InsProduct insProduct = insProductRepository.findByInsCompany(insCompany);
-        insProductRepository.delete(insProduct);
+
+        insProductRepository.deleteAll(insProducts);
         insCompanyRepository.delete(insCompany);
     }
 

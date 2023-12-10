@@ -18,11 +18,14 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public List<Client> findAllBySearchParams(String clientEgnBulstat, String clientType, String clientFullname, String email, String telephone) {
-        if (clientType != null && clientType.equals("INDIVIDUAL")) {
-            clientType = "I";
-        } else {
-            clientType = "C";
+        if (clientType != null) {
+            if (clientType.equals("INDIVIDUAL")) {
+                clientType = "I";
+            } else {
+                clientType = "C";
+            }
         }
+
         return clientRepository.findAllBySearchParams(clientEgnBulstat, clientType, clientFullname, email, telephone);
     }
 

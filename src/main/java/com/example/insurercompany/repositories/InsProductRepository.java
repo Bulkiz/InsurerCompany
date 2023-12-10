@@ -12,7 +12,6 @@ import java.util.List;
 
 @Repository
 public interface InsProductRepository extends JpaRepository<InsProduct, Integer> {
-    InsProduct findByInsCompany(InsCompany insCompany);
 
     @Query(value = "SELECT ip.* FROM ins_product ip "
             + "LEFT JOIN ins_company ic ON ic.ins_company_id = ip.ins_company_id WHERE "
